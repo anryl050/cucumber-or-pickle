@@ -1,5 +1,5 @@
 
-# Project 2
+# Cucumber-or-Pickle
 
 ![Badge](https://img.shields.io/badge/license-MIT-green?style=plastic&logo=appveyor)
 
@@ -16,10 +16,12 @@
 
 
 ## Project Description
-
+Daily mini polls to see if your friends agree with your opinions. 
 
 ### User Story
-
+As a person with opinions, 
+I want to be able to share those opinions with my friends and have them agree or disagree, 
+so I can feel validated or get new friends.
 
 ### Acceptance Criteria
 
