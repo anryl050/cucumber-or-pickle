@@ -2,28 +2,107 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Blog</title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<<<<<<<<< Temporary merge branch 1
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cucumber-OR-Pickle</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- Link to the Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <!-- Link to tailwinds -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome (CSS Kit)-->
+    <script src="https://kit.fontawesome.com/b3f46e2a2f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+>>>>>>>>> Temporary merge branch 2
 </head>
 
-<body>
-  <header>
-    <h1>Welcome </h1>
-  </header>
+<body class="hero">
   <nav>
-    <a href="/">Home</a>
+    <!-- </header> -->
+
+    <!--Fixed Nav Bar: when user scrolls through the screen, the Nav Bar remains on top of the screen. -->
+    <header class="bg-blue-500">
+      <div
+        class=" px-4 py-4 flex justify-between items-center bg-white fixed top-0 z-30 w-full px-1 py-3 bg-white sm:px-4 shadow-xl">
+        <blockquote class="text-6xl p-6 font-semibold italic text-start text-slate-900">
+          Cucumber
+          <span
+            class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-blue-500 relative inline-block">
+            <span class="relative text-white">or</span>
+          </span>
+          Pickle
+        </blockquote>
+        <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+          href="#">Sign In</a>
+        <a class="no-button hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+          id="signout" href="#">Sign up</a>
+      </div>
+
+      <div class="navbar-menu relative z-50 hidden">
+
+        <div
+          class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-xs py-6 px-6 bg-white border-r overflow-y-auto">
+          <div class="mt-auto">
+            <div class="pt-6">
+              <!-- Conditionally render login or logout links -->
+              {{#if logged_in}}
+              <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
+                href="/profile">Your Profile</a>|
+              <button
+                class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
+                id="signout">Sign Out</button>
+              {{else}}
+              <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
+                href="/login">Sign in</a>
+              <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
+                href="/signup">Sign Up</a>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
   </nav>
+
+
   <main>
-    <aside>
-      <h2>Enjoy !</h2>
-    </aside>
     <div class="blog">
       {{{body}}}
     </div>
   </main>
+
+  <footer class=" fixed bottom-0 z-30 w-full columns-1 flex items-center justify-center space-x-11 bg-white text-black"
+    id="contact-us">
+
+    <!-- Contact Info -->
+    <section class="flex text-center py-1 gap-10 contact">
+      <p class="py-1 self-center"></p>
+      <!-- Font Awesome icons: FB, GitHub -->
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i
+          class="fa-brands fa-facebook"></i></a>
+      <a href="https://github.com/anryl050/cucumber-or-pickle.git" target="_blank" rel="noopener noreferrer"><i
+          class="py-1 self-center fa-brands fa-github"></i></a>
+    </section>
+
+    <!-- Copyright Info -->
+    <section class="py-1 flex self-center gap-3">
+
+      <!-- Font Awesome - Shoe prints -->
+      <p>© </p> <i class="py-1 flex self-center gap-3 fa-solid fa-jar"></i>
+      <p>Pickled Cucumber, Inc.</p>
+    </section>
+  </footer>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+
 </body>
 
 </html>
