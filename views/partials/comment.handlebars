@@ -1,0 +1,14 @@
+{{!-- We can consider if we will have time to explore this --}}
+
+<div>
+    <!-- commenter -->
+    <h4><a class="no-dec username logo" href="/{{user.username}}">{{user.username}}</a></h4>
+
+    <!-- content -->
+    <p>{{content}}</p>
+    {{#if loggedIn}}
+    {{#if (isByUser user.id user_id)}}
+    <button data-comment-id="{{id}}" class="delete-comment">Delete Comment</button>
+    {{/if}}
+    {{/if}}
+</div>
