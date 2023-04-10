@@ -21,6 +21,7 @@ async function voteOnPoll(choice) {
         });
         const result = await response.json();
         console.log(result);
+        await displayPollResults(pollID);
     } catch (err) {
         console.error(err);
     }
