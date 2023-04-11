@@ -12,8 +12,8 @@ const router = require('express').Router();
 // GET all galleries for homepage
 router.get('/', async (req, res) => {
   try {
-     res.render('homepage', {
-      posts: [1, 2]
+     res.render('user-profile', {
+      polls: [1, 2]
     });
   } catch (err) {
     console.log(err);
