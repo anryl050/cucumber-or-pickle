@@ -1,33 +1,35 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Poll extends Model {}
+// create poll model
+class Post extends Model { }
 
+// create fields/columns for poll model
 Poll.init(
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    poll_text: {
+      type: DataTypes.TEXT,
+      allowNull: true
     },
-    user_id:{
-        type:DataTypes.INTEGER,
-        references:{
-            model:"user",
-            key:"id"
-        }
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
     }
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'poll',
+    modelName: 'poll'
   }
 );
 
