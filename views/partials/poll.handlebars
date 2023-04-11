@@ -7,24 +7,20 @@
             <h1 class="title mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl dark:sm:text-white">Cucumbers are
                 better than pickles!</h1>
         </div>
-        <div class="flex justify-center gap-4 sm:mb-6 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
-            <canvas id="{{}}"></canvas>
-        </div>
         <div
             class=" flex items-center relative p-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
             <p class="mt-1 text-sm font-semibold sm:text-slate-900 md:text-lg dark:sm:text-white">Post By: User Name</p>
         </div>
+        <div class="flex justify-center gap-4 sm:mb-6 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
+            <canvas id="{{ id }}-chart"></canvas> {{! line for hosting the poll chart. }}
+        </div>
         <div
             class=" flex gap-5 mt-2 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2 lg:mt-6 lg:col-start-1 lg:row-start-3 lg:row-end-4">
-            <button type="submit"
-                class="flex justify-center w-20 items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-                Agree
-            </button>
-            <button type="submit"
-                class="flex justify-center w-20 items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-                Disagree
-            </button>
+            <button type="submit" class="flex justify-center w-20 items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" id="agree-button">Agree</button> {{! agree button }}
+            <button type="submit" class="flex justify-center w-20 items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" id="disagree-button">Disagree</button> {{! disagree button }}
         </div>
+        <script src="/doughnut.js"></script> {{! addition of poll chart functions }}
+        <script>displayPollResults('{{ id }}', '{{ id }}-chart');</script> {{! calling function to display poll chart }}
         <section class="bg-white dark:bg-gray-900 lg:py-16">
             <div class="max-w-lg mx-auto px-4">
                 <div class="flex justify-between items-center mb-6">
