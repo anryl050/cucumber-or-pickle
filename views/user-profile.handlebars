@@ -8,19 +8,19 @@
 
                 <form class="form new-poll-form flex flex-col flex-wrap justify-center  py-5 px-10 gap-5 bg-white mx-auto  lg:max-w-5xl lg:gap-x-20 border-2  rounded-md">
                   <div class=" flex items-center relative p-3 my-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5 ">
-                    <label id="poll-desc" class="title mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl dark:sm:text-white">Create Poll</label>
+                    <label id="poll-desc" class="title mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl ">Create Poll</label>
                   </div>
     
-                  <section class="bg-white dark:bg-gray-900">
+                  <section class="bg-white ">
                       <div class=" mx-auto px-4">
                         <form class="mb-6">
-                            <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                            <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 ">
                                 <textarea id="poll-name" rows="6"
-                                    class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                                    class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none "
                                     placeholder="Write a comment..."required></textarea>
                             </div>
                             <button type="submit"
-                                class="btn btn-primary inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                                class="btn btn-primary inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800">
                                 Create Poll
                             </button>
                         </form>
@@ -33,7 +33,7 @@
      {{#if poll.length}}
      <div class="poll-list col-start-4 col-end-7 justify-center border-2  rounded-md bg-white border-2 rounded-md bg-opacity-[.80]">
             <div class=" flex items-center relative p-3 my-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5 ">
-            <h1 class="title mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl dark:sm:text-white">Your Current Polls:</h1>
+            <h1 class="title mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl ">Your Current Polls:</h1>
             </div>
 
         {{!-- For each poll the following styling format will be applied --}}
@@ -44,7 +44,7 @@
                 <div class=" flex items-center relative p-3 my-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5 ">
                     
                     <button type="submit"
-                    class="flex justify-center w-22 items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800" data-id="{{poll.id}}">
+                    class="flex justify-center w-22 items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200  hover:bg-primary-800" data-id="{{poll.id}}">
                     Delete Poll
                     </button>
                     {{!-- This pulls the information from the partial -> poll-details.handelbars --}}
