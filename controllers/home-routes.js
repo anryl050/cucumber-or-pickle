@@ -12,7 +12,7 @@ const router = require('express').Router();
 // GET all galleries for homepage
 router.get('/', async (req, res) => {
   try {
-     res.render('user-profile', {
+     res.render('homepage', {
       polls: [1, 2]
     });
   } catch (err) {
