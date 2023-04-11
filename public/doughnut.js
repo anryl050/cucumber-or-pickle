@@ -14,7 +14,8 @@ async function displayPollResults(pollId) {
     const pollData = await getPollData(pollId);
     const agreeVotes = pollData.agree_votes;
     const disagreeVotes = pollData.disagree_votes;
-    const pollResultsChart = new Chart(document.getElementById('poll-results'), {
+    const pollResultsChart = new Chart(
+        document.getElementById(pollId), {
         type: 'doughnut',
         data: {
             labels: ['Agree', 'Disagree'],
