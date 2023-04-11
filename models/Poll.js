@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Comment extends Model {}
+class Poll extends Model {}
 
-Comment.init(
+Poll.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -22,20 +22,13 @@ Comment.init(
           key:"id"
       }
     },
-    poll_id:{
-      type:DataTypes.INTEGER,
-      references:{
-          model:"poll",
-          key:"id"
-      }
-    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'comment',
+    modelName: 'poll',
   }
 );
 
-module.exports = Comment;
+module.exports = Poll;
