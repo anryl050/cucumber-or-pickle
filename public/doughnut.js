@@ -10,12 +10,12 @@ async function getPollData(pollId) {
     }
 }
 
-async function displayPollResults(pollId) {
+async function displayPollResults(pollId, elementId) {
     const pollData = await getPollData(pollId);
     const agreeVotes = pollData.agree_votes;
     const disagreeVotes = pollData.disagree_votes;
     const pollResultsChart = new Chart(
-        document.getElementById(pollId), {
+        document.getElementById(elementId), {
         type: 'doughnut',
         data: {
             labels: ['Agree', 'Disagree'],
