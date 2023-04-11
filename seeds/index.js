@@ -2,7 +2,7 @@ const seedPolls = require('./poll-seeds');
 const seedUsers = require('./user-seeds');
 const seedComments = require('./comment-seeds');
 
-const sequelize = require('../config/connection');
+const sequelize = require('../config/connections');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });

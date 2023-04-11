@@ -23,6 +23,6 @@ const pollData = [
     },
 ]
 
-const seedPolls = () => Post.bulkCreate(pollData);
+const seedPolls = () => Poll.bulkCreate(pollData);
 
 module.exports = seedPolls;

@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const sequelize = require('../config/connections');
 
 // create poll model
-class Post extends Model { }
+class Poll extends Model { }
 
 // create fields/columns for poll model
 Poll.init(
