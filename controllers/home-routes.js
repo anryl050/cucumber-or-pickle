@@ -10,8 +10,7 @@ router.get('/', (req, res) => {
     Poll.findAll({
       attributes: [
         'id',
-        'poll_text',
-        'created_at'
+        'poll_text'
       ],
       include: [
         {
