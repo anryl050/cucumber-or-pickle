@@ -3,25 +3,6 @@ const sequelize = require('../config/connection');
 const { Poll, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
-<<<<<<< HEAD
-    console.log(req.session);
-    
-    Poll.findAll({
-      attributes: [
-        'id',
-        'poll_text'
-      ],
-      include: [
-        {
-          model: Comment,
-          attributes: ['id', 'comment_text', 'poll_id', 'user_id', 'created_at'],
-          include: {
-            model: User,
-            attributes: ['username']
-          }
-        },
-        {
-=======
   console.log(req.session);
 
   Poll.findAll({
@@ -37,7 +18,6 @@ router.get('/', (req, res) => {
         model: Comment,
         attributes: ['id', 'comment_text', 'poll_id', 'user_id', 'created_at'],
         include: {
->>>>>>> 628fffb0721fb19537ee2ffc448260911bde04f8
           model: User,
           attributes: ['username']
         }
