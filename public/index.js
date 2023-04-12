@@ -1,5 +1,6 @@
 const agreeButton = document.querySelector('#agree-button');
 const disagreeButton = document.querySelector('#disagree-button');
+import { displayPollResults, getPollData } from "./doughnut";
 
 agreeButton.addEventListener('click', () => {
     voteOnPoll('agree');
@@ -21,7 +22,14 @@ async function voteOnPoll(choice) {
         });
         const result = await response.json();
         console.log(result);
-        await displayPollResults(pollID);
+
+        const chart = Chart.getChart(pollID + '-chart');
+        if (choice === 'agree') {
+            chart.data.datasets[0].data[0] = result.agree_votes;
+        } else if (choice === 'disagree') {
+            chart.data.datasets[0].data[1] = result.disagree_votes;
+        }
+        chart.update();
     } catch (err) {
         console.error(err);
     }
@@ -56,4 +64,6 @@ async function createNewPoll() {
     } catch (err) {
         console.error(err);
     }
-}
+};
+
+createNewPoll();
