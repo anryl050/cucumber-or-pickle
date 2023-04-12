@@ -1,68 +1,76 @@
 <section id="" class="place-content-center pt-40 pb-40">
 
-           <!-- Poll 1: example -->
-        <div class="flex grid grid-cols-6 gap-20 px-5">
+    <!-- Poll 1: example -->
+    <div class="flex grid grid-cols-6 gap-20 px-5">
 
         {{!-- this is the styling container for the New Poll --}}
         <section class="col-start-1 col-span-3 justify-center py-5">
 
-                <form class="form new-poll-form flex flex-col flex-wrap justify-center  py-5 px-10 gap-5 bg-white mx-auto  lg:max-w-5xl lg:gap-x-20 border-2  rounded-md">
-                  <div class=" flex items-center relative p-3 my-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5 ">
-                    <label id="poll-desc" class="title mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl ">Create Poll</label>
-                  </div>
-    
-                  <section class="bg-white ">
-                      <div class=" mx-auto px-4">
+            <form
+                class="form new-poll-form flex flex-col flex-wrap justify-center  py-5 px-10 gap-5 bg-white mx-auto  lg:max-w-5xl lg:gap-x-20 border-2  rounded-md">
+                <div
+                    class=" flex items-center relative p-3 my-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5 ">
+                    <label id="poll-desc" class="title mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl ">Create
+                        Poll</label>
+                </div>
+
+                <section class="bg-white ">
+                    <div class=" mx-auto px-4">
                         <form class="mb-6">
                             <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 ">
                                 <textarea id="poll-name" rows="6"
                                     class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none "
-                                    placeholder="Write a comment..."required></textarea>
+                                    placeholder="Write a comment..." required></textarea>
                             </div>
                             <button type="submit"
                                 class="btn btn-primary inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800">
                                 Create Poll
                             </button>
                         </form>
-                        </div>
-                    </section>
-                </form>        
+                    </div>
+                </section>
+            </form>
         </section>
 
-{{!-- When the user creates a new poll, the list of polls will show up here --}}
-     {{#if poll.length}}
-     <div class="poll-list col-start-4 col-end-7 justify-center border-2  rounded-md bg-white border-2 rounded-md bg-opacity-[.80]">
-            <div class=" flex items-center relative p-3 my-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5 ">
-            <h1 class="title mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl ">Your Current Polls:</h1>
+        {{!-- When the user creates a new poll, the list of polls will show up here --}}
+        {{#if poll.length}}
+        <div
+            class="poll-list col-start-4 col-end-7 justify-center border-2  rounded-md bg-white border-2 rounded-md bg-opacity-[.80]">
+            <div
+                class=" flex items-center relative p-3 my-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5 ">
+                <h1 class="title mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl ">Your Current Polls:</h1>
             </div>
 
-        {{!-- For each poll the following styling format will be applied --}}
-        {{#each polls as |poll|}}
+            {{!-- For each poll the following styling format will be applied --}}
+            {{#each polls as |poll|}}
             <section class="py-5 gap-5">
 
-                <div class="flex flex-col flex-wrap justify-center py-5 px-10 gap-5 bg-white mx-auto lg:max-w-2xl lg:gap-x-20 border-2  rounded-md">
-                <div class=" flex items-center relative p-3 my-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5 ">
-                    
-                    <button type="submit"
-                    class="flex justify-center w-22 items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200  hover:bg-primary-800" data-id="{{poll.id}}">
-                    Delete Poll
-                    </button>
-                    {{!-- This pulls the information from the partial -> poll-details.handelbars --}}
-                    {{!-- in the Poll partial need to have a reference to the {{poll.description}} or similar--}}
-                    {{!-- <div class="col-md-8">
-                    <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
-                     </div> --}}
+                <div
+                    class="flex flex-col flex-wrap justify-center py-5 px-10 gap-5 bg-white mx-auto lg:max-w-2xl lg:gap-x-20 border-2  rounded-md">
+                    <div
+                        class=" flex items-center relative p-3 my-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1 gap-5 ">
 
-                    {{>limited-poll-details}}
-                    
-                </div>
-                                                                
+                        <button type="submit"
+                            class="flex justify-center w-22 items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200  hover:bg-primary-800"
+                            data-id="{{poll.id}}">
+                            Delete Poll
+                        </button>
+                        {{!-- This pulls the information from the partial -> poll-details.handelbars --}}
+                        {{!-- in the Poll partial need to have a reference to the {{poll.description}} or similar--}}
+                        {{!-- <div class="col-md-8">
+                            <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+                        </div> --}}
+
+                        {{>limited-poll-details}}
+
+                    </div>
+
             </section>
-        {{/each}}
-    </div>
-    {{/if}}
-
+            {{/each}}
         </div>
+        {{/if}}
+
+    </div>
 
 </section>
 
