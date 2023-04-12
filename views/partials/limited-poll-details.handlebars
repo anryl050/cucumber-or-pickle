@@ -2,7 +2,7 @@
 
                 <div class="flex flex-col flex-wrap justify-center px-5 py-5 gap-5 bg-white mx-auto lg:max-w-2xl lg:gap-x-20 border-2  rounded-md">
                   <div class=" flex items-center relative p-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
-                    <h1 class="mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl">Poll 1: Cucumber or Pickle?</h1>
+                    <h1 class="mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl">{{poll.poll_text}}</h1>
                   </div>
                   <div class="flex justify-center gap-4 sm:mb-6 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
 
@@ -12,7 +12,7 @@
 
                   </div>
                   <div class=" flex items-center relative p-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
-                  <p class="mt-1 text-sm font-semibold sm:text-slate-900 md:text-lg">Poll By: User Name</p>
+                  <p class="mt-1 text-sm font-semibold sm:text-slate-900 md:text-lg">Poll By: {{user.username}}</p>
                   </div>        
                   <article class="p-6 mb-6 text-base bg-white rounded-lg">
                     <footer class="flex justify-between items-center mb-2">
@@ -23,7 +23,7 @@
                                     src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
 
                                     {{!-- will need to replace with the actual user name --}}
-                                    alt="user name">{{comment.user.name}}</p>
+                                    alt="user name">{{comment.user.username}}</p>
                                     {{!-- will need to make sure that this is the correct date for the comment --}}
                             {{!-- <p class="text-sm text-gray-600"><time pubdate 
                                    >{{format_date comment.date_created}}</time></p> --}}
