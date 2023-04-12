@@ -1,5 +1,3 @@
-const ctx = document.getElementById('myChart');
-
 async function getPollData(pollId) {
     try {
         const response = await fetch(`/api/polls/${pollId}`);
@@ -11,11 +9,14 @@ async function getPollData(pollId) {
 }
 
 async function displayPollResults(pollId, elementId) {
+    const ctx = document.getElementById(elementId)
     const pollData = await getPollData(pollId);
+    console.log(pollData);
     const agreeVotes = pollData.agree_votes;
     const disagreeVotes = pollData.disagree_votes;
-    const pollResultsChart = new Chart(
-        document.getElementById(elementId), {
+    console.log(agreeVotes);
+    console.log(disagreeVotes);
+    new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: ['Agree', 'Disagree'],

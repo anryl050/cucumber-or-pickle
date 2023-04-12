@@ -23,6 +23,12 @@ Poll.init(
         model: 'user',
         key: 'id'
       }
+    },
+    agree_votes: {
+      type: DataTypes.INTEGER
+    },
+    disagree_votes: {
+      type: DataTypes.INTEGER
     }
   },
   {

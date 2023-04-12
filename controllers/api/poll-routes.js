@@ -11,7 +11,9 @@ router.get('/', (req, res) => {
       'id',
       'poll_text',
       'created_at',
-      'user_id'
+      'user_id',
+      'agree_votes',
+      'disagree_votes'
     ],
     order: [['created_at']],
     include: [
@@ -47,7 +49,9 @@ router.get('/:id', (req, res) => {
       'id',
       'poll_text',
       'created_at',
-      'user_id'
+      'user_id',
+      'agree_votes',
+      'disagree_votes'
     ],
     include: [
       // include the comment model
