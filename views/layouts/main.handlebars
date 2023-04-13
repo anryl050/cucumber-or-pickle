@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cucumber-OR-Pickle</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="../../public/css/style.css">
   <!-- Link to the Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,20 +26,22 @@
 
     <!--Fixed Nav Bar: when user scrolls through the screen, the Nav Bar remains on top of the screen. -->
     <header class="bg-blue-500">
-      <div
-        class=" px-4 py-4 flex justify-between items-center bg-white fixed top-0 z-30 w-full px-1 py-3 bg-white sm:px-4 shadow-xl">
-        <blockquote class="text-6xl p-6 font-semibold italic text-start text-slate-900">
-          Cucumber
-          <span
-            class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-blue-500 relative inline-block">
-            <span class="relative text-white">or</span>
-          </span>
-          Pickle
-        </blockquote>
-        <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
-          href="/login">Login</a>
-        <a class="no-button hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-          id="logout" href="#">Sign up</a>
+      <a href="/">
+        <div
+          class="px-4 py-4 flex justify-between items-center bg-white fixed top-0 z-30 w-full px-1 py-3 bg-white sm:px-4 shadow-xl">
+          <blockquote class="text-6xl p-6 font-semibold italic text-start text-slate-900">
+            Cucumber
+            <span
+              class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-blue-500 relative inline-block">
+              <span class="relative text-white">or</span>
+            </span>
+            Pickle
+          </blockquote>
+      </a>
+      <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold rounded-xl transition duration-200"
+        href="/login">Login</a>
+      <a class="no-button hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+        id="signup" href="/signup">Sign up</a>
       </div>
 
       <div class="navbar-menu relative z-50 hidden">
@@ -53,7 +55,7 @@
               <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
                 href="/profile">Your Profile</a>|
               <button
-                class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl"
+                class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-xl"
                 id="logout">Logout</button>
               {{else}}
               <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
@@ -70,7 +72,7 @@
 
 
   <main>
-    <div class="blog">
+    <div>
       {{{body}}}
     </div>
   </main>
@@ -82,8 +84,6 @@
     <section class="flex text-center py-1 gap-10 contact">
       <p class="py-1 self-center"></p>
       <!-- Font Awesome icons: FB, GitHub -->
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i
-          class="fa-brands fa-facebook"></i></a>
       <a href="https://github.com/anryl050/cucumber-or-pickle.git" target="_blank" rel="noopener noreferrer"><i
           class="py-1 self-center fa-brands fa-github"></i></a>
     </section>
@@ -92,14 +92,15 @@
     <section class="py-1 flex self-center gap-3">
 
       <!-- Font Awesome - Shoe prints -->
-      <p>© </p> <i class="py-1 flex self-center gap-3 fa-solid fa-jar"></i>
       <p>Pickled Cucumber, Inc.</p>
+      <p>©</p>
+      {{!-- <i class="py-1 flex self-center gap-3 fa-solid fa-jar"></i> --}}
     </section>
   </footer>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+  <script src="../../public/javascript/logout.js"></script>
   {{/if}}
 
 </body>

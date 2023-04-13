@@ -1,6 +1,7 @@
 const agreeButton = document.querySelector('#agree-button');
 const disagreeButton = document.querySelector('#disagree-button');
-import { displayPollResults, getPollData } from "./doughnut";
+// import { displayPollResults, getPollData } from "../public/javascript/doughnut.js";
+import { displayPollResults, getPollData } from "./javascript/doughnut.js";
 
 agreeButton.addEventListener('click', () => {
     voteOnPoll('agree');
