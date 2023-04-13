@@ -28,6 +28,9 @@
     <header class="bg-blue-500">
       <div
         class=" px-4 py-4 flex justify-between items-center bg-white fixed top-0 z-30 w-full px-1 py-3 bg-white sm:px-4 shadow-xl">
+
+        {{!-- need a route for home page --}}
+        <a  href="/homepage">
         <blockquote class="text-6xl p-6 font-semibold italic text-start text-slate-900">
           Cucumber
           <span
@@ -36,10 +39,11 @@
           </span>
           Pickle
         </blockquote>
+        </a>
         <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
           href="/login">Login</a>
         <a class="no-button hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-          id="logout" href="#">Sign up</a>
+          id="logout" href="/signup">Sign up</a>
       </div>
 
       <div class="navbar-menu relative z-50 hidden">
@@ -99,7 +103,7 @@
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+  <script src="./logout.js"></script>
   {{/if}}
 
 </body>
