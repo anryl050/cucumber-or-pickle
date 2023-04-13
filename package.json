@@ -17,7 +17,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "webpack": "^5.79.0"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -30,7 +31,10 @@
     "handlebars": "^4.7.7",
     "i": "^0.3.7",
     "mysql2": "^2.3.3",
+    "normalize-path": "^3.0.0",
     "npm": "^9.6.4",
-    "sequelize": "^6.31.0"
+    "sequelize": "^6.31.0",
+    "serve-static": "^1.15.0",
+    "webpack-dev-server": "^4.13.2"
   }
 }
