@@ -34,7 +34,7 @@ router.get('/', withAuth, (req, res) => {
     .then(dbPollData => {
       // serialize data before passing to template
       const polls = dbPollData.map(poll => poll.get({ plain: true }));
-      res.render('dashboard', { polls, loggedIn: true });
+      res.render('user-profile', { polls, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
