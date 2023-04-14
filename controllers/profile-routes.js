@@ -34,7 +34,7 @@ router.get('/', withAuth, (req, res) => {
     .then(dbPollData => {
       // serialize data before passing to template
       const polls = dbPollData.map(poll => poll.get({ plain: true }));
-      res.render('user-profile', { polls, loggedIn: true });
+      res.render('user-profile', { polls, logged_in: true });
     })
     .catch(err => {
       console.log(err);
@@ -80,7 +80,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
 
       res.render('edit-poll', {
         poll,
-        loggedIn: true
+        logged_in: true
       });
     })
     .catch(err => {
@@ -120,7 +120,7 @@ router.get('/create/', withAuth, (req, res) => {
     .then(dbPollData => {
       // serialize data before passing to template
       const polls = dbPollData.map(poll => poll.get({ plain: true }));
-      res.render('create-poll', { polls, loggedIn: true });
+      res.render('create-poll', { polls, logged_in: true });
     })
     .catch(err => {
       console.log(err);
