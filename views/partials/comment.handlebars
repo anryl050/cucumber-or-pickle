@@ -1,14 +1,14 @@
 {{!-- We can consider if we will have time to explore this --}}
-
-<div>
-    <!-- commenter -->
-    <h4><a class="no-dec username logo" href="/{{user.username}}">{{user.username}}</a></h4>
-
-    <!-- content -->
-    <p>{{content}}</p>
-    {{#if logged_in}}
-    {{#if (isByUser user.id user_id)}}
-    <button data-comment-id="{{id}}" class="delete-comment">Delete Comment</button>
-    {{/if}}
-    {{/if}}
+<div class="comments">
+    <div class="card">
+        <h3 class="card-header"></h3>
+        <section class="comment card-body">
+            <div class="text">
+                {{comment.comment_text}}
+            </div>
+            <div class="meta">
+                {{user.username}}, {{format_date created_at}}
+            </div>
+        </section>
+    </div>
 </div>

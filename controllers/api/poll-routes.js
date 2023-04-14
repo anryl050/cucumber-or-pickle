@@ -84,11 +84,18 @@ router.get('/:id', (req, res) => {
 
 // POST poll route
 router.post('/', withAuth, (req, res) => {
+
+  // if(!req.poll_text){
+  //   res.status(500).json({message: "missing poll_text"})
+  // }
+
   Poll.create({
     poll_text: req.body.poll_text,
     user_id: req.session.user_id
   })
-    .then(dbPollData => res.json(dbPollData))
+  .then(dbPollData => 
+    res.json(dbPollData)
+  )
     .catch(err => {
       console.log(err);
       res.status(500).json(err);

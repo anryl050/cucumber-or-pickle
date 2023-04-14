@@ -22,15 +22,13 @@
 
 <body class="hero">
   <nav>
-    <!-- </header> -->
-
-    <!--Fixed Nav Bar: when user scrolls through the screen, the Nav Bar remains on top of the screen. -->
+   <!--Fixed Nav Bar: when user scrolls through the screen, the Nav Bar remains on top of the screen. -->
     <header class="bg-blue-500">
       <div
         class=" px-4 py-4 flex justify-between items-center bg-white fixed top-0 z-30 w-full px-1 py-3 bg-white sm:px-4 shadow-xl">
 
         {{!-- need a route for home page --}}
-        <a  href="/homepage">
+        <a  href="/">
         <blockquote class="text-6xl p-6 font-semibold italic text-start text-slate-900">
           Cucumber
           <span
@@ -41,16 +39,11 @@
         </blockquote>
 
         </a>
-        {{!-- <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
-          href="/login">Login</a>
-        <a class="no-button hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-         href="/signup">Sign up</a> --}}
-
-          {{#if logged_in}}
+               {{#if logged_in}}
               <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm      text-gray-900  font-bold  rounded-xl transition duration-200"
                 href="/profile">Your Profile</a>
               <button
-                class="no-button hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+                 class="no-button hidden lg:inline-block py-2 px-6 bg-pink-500 hover:bg-pink-600 text-sm text-white font-bold rounded-xl transition duration-200"
                 id="logout">Logout</button>
       
               {{else}}
@@ -68,7 +61,7 @@
 
 
   <main>
-    <div class="">
+    <div>
       {{{body}}}
     </div>
   </main>

@@ -15,7 +15,7 @@ Poll.init(
     },
     poll_text: {
       type: DataTypes.TEXT,
-      allowNull: true
+      allowNull: false
     },
     user_id: {
       type: DataTypes.INTEGER,

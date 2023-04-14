@@ -34,7 +34,7 @@ router.get('/', withAuth, (req, res) => {
     .then(dbPollData => {
       // serialize data before passing to template
       const polls = dbPollData.map(poll => poll.get({ plain: true }));
-      res.render('homepage', { polls, logged_in: true });
+      res.render('user-profile', { polls, logged_in: true });
     })
     .catch(err => {
       console.log(err);
@@ -89,43 +89,43 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
-router.get('/create/', withAuth, (req, res) => {
-  Poll.findAll({
-    where: {
-      // use the ID from the session
-      user_id: req.session.user_id
-    },
-    attributes: [
-      'id',
-      'poll_text',
-      'created_at',
-      'agree_votes',
-      'disagree_votes'
-    ],
-    include: [
-      {
-        model: Comment,
-        attributes: ['id', 'comment_text', 'poll_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
-  })
-    .then(dbPollData => {
-      // serialize data before passing to template
-      const polls = dbPollData.map(poll => poll.get({ plain: true }));
-      res.render('create-poll', { polls, logged_in: true });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// router.get('/create/', withAuth, (req, res) => {
+//   Poll.findAll({
+//     where: {
+//       // use the ID from the session
+//       user_id: req.session.user_id
+//     },
+//     attributes: [
+//       'id',
+//       'poll_text',
+//       'created_at',
+//       'agree_votes',
+//       'disagree_votes'
+//     ],
+//     include: [
+//       {
+//         model: Comment,
+//         attributes: ['id', 'comment_text', 'poll_id', 'user_id', 'created_at'],
+//         include: {
+//           model: User,
+//           attributes: ['username']
+//         }
+//       },
+//       {
+//         model: User,
+//         attributes: ['username']
+//       }
+//     ]
+//   })
+//     .then(dbPollData => {
+//       // serialize data before passing to template
+//       const polls = dbPollData.map(poll => poll.get({ plain: true }));
+//       res.render('create-poll', { polls, logged_in: true });
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 module.exports = router;
