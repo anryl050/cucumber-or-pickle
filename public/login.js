@@ -1,4 +1,4 @@
-const loginFormHandler = (event) => {
+const loginFormHandler = async (event) => {
   event.preventDefault();
 
   // Collect values from the login form
@@ -7,7 +7,7 @@ const loginFormHandler = (event) => {
 
   if (email && password) {
     // Send a POST request to the API endpoint
-    const response = fetch('/api/users/login', {
+    const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -15,7 +15,7 @@ const loginFormHandler = (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/user-profile');
+      document.location.replace('/profile');
     } else {
       alert(response.statusText);
     }
@@ -37,7 +37,7 @@ const loginFormHandler = (event) => {
 //     });
 
 //     if (response.ok) {
-//       document.location.replace('/profile');
+//       document.location.replace('/');
 //     } else {
 //       alert(response.statusText);
 //     }
