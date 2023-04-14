@@ -9,6 +9,7 @@
      <div
       class=" flex items-center relative p-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
       <p class="mt-1 text-sm font-semibold sm:text-slate-900 md:text-lg">Poll By: {{user.username}}</p>
+      <p class="mt-1 text-sm font-semibold sm:text-slate-900 md:text-lg">Published On:{{format_date created_at}} </p>
     </div>
     <div class="flex justify-center gap-4 sm:mb-6 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
             <canvas id="{{ id }}-chart"></canvas> {{! line for hosting the poll chart. }}
@@ -21,23 +22,39 @@
         <div class="flex justify-between items-center mb-6">
                     <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Discussion</h2>
                 </div>
-      <footer class="flex justify-between items-center mb-2">
+      {{!-- <footer class="flex justify-between items-center mb-2">
         <div class="flex items-center">
-          <p class="inline-flex items-center mr-3 text-sm text-gray-900"><img class="mr-2 w-6 h-6 rounded-full" {{!--
-              will need to delete the picture --}} src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-              {{!-- will need to replace with the actual user name --}} alt="user name">{{username.comment}}</p>
+          <p class="inline-flex items-center mr-3 text-sm text-gray-900">
+            <img class="mr-2 w-6 h-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="User Profile Picture">
+            {{comment.user.username}}</p>
 
-          {{!-- will need to make sure that this is the correct date for the comment --}}
-          {{!-- <p class="text-sm text-gray-600"><time pubdate>{{format_date comment.date_created}}</time></p> --}}
+          <p class="text-sm text-gray-600"><time pubdate>{{format_date comment.created_at}}</time></p>
         </div>
-        <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"
+         <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"
           class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           type="button">
-        </button>
+        </button> 
       </footer>
+
       <div>
-        <p class="text-gray-500">{{comment_id}}</p>
-      </div>
+        <p class="text-gray-500">{{ comments }}</p>
+      </div> --}}
+      
+       {{#each comments as |comment|}}
+          <div class="card">
+        <h3 class="card-header"></h3>
+        <section class="comment card-body">
+            <div class="text">
+                {{comment_text}}
+            </div>
+            <div class="meta">
+                {{user.username}}, {{format_date created_at}}
+            </div>
+        </section>
+          </div>
+       {{/each}}
+
+       
     </article>
   </div>
 </section>
