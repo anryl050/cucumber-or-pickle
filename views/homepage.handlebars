@@ -1,5 +1,17 @@
 <section id="" class="place-content-center pt-40 pb-40">
+{{#if logged_in}}
     {{#each polls as |poll|}}
     {{> poll}}
     {{/each}}
+                
+ {{else}}
+    {{#each polls as |poll|}}
+    {{> limited-poll-details}}
+    {{/each}}
+{{/if}}
+
+    
+    {{!-- {{#each polls as |poll|}}
+    {{> poll}}
+    {{/each}} --}}
 </section>
