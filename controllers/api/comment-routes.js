@@ -11,6 +11,20 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+  Comment.findAll({
+          where: {
+              id: req.params.id
+          }
+      })
+      .then(dbCommentData => res.json(dbCommentData))
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      })
+});
+
+
 // POST comment route
 router.post('/', withAuth, (req, res) => {
   // check the session
@@ -18,14 +32,17 @@ router.post('/', withAuth, (req, res) => {
     Comment.create({
       comment_text: req.body.comment_text,
       poll_id: req.body.poll_id,
-      // use the id from the session
       user_id: req.session.user_id,
     })
       .then(dbCommentData => res.json(dbCommentData))
       .catch(err => {
         console.log(err);
-        res.status(400).json(err);
+        res.status(500).json(err);
       });
+  } else {
+     res.status(404).json({
+            message: 'Not logged in!'
+        });
   }
 });
 
