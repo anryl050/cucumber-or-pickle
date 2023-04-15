@@ -1,14 +1,14 @@
-{{!-- We can consider if we will have time to explore this --}}
-<div class="comments">
-    <div class="card">
-        <h3 class="card-header"></h3>
-        <section class="comment card-body">
-            <div class="text">
-                {{comment.comment_text}}
-            </div>
-            <div class="meta">
-                {{user.username}}, {{format_date created_at}}
-            </div>
-        </section>
-    </div>
-</div>
+{{#each comments as |comment|}}
+                    <div>      
+                    <footer class="flex justify-between items-center mb-2">
+                        <div class="flex items-center">
+                        <div class="meta inline-flex items-center mr-3 text-sm text-gray-900">
+                        <img class="mr-2 w-6 h-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="User Profile Picture">
+                        {{user.username}}</div>
+                        <div class="text-sm text-gray-600">{{format_date comment.created_at}}</div>   
+                    </footer>
+                        <div class="text flex justify-between items-center mb-2">
+                        <p class=" text-gray-500"> {{comment_text}}</p>
+                        </div>
+                    </div>
+{{/each}}

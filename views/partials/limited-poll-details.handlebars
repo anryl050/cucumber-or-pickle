@@ -1,7 +1,7 @@
-<section class=" flex flex-col flex-wrap justify-center search-container py-5 gap-5">
+<section class=" flex flex-col flex-wrap justify-center py-5 gap-5">
 
 <div
-    class="flex flex-col flex-wrap justify-center px-5 py-5 gap-5 bg-white mx-auto lg:max-w-2xl lg:gap-x-20 border-2  rounded-md">
+    class="flex flex-col flex-wrap justify-center container mx-auto px-4 mx-2xl py-5 gap-5 bg-white max-w-md gap-x-20 border-2  rounded-md">
     <div
       class=" flex items-center relative p-3 col-start-1 row-start-1 flex-col-reverse rounded-lg  via-black/0 sm:bg-none sm:row-start-2 sm:p-0 lg:row-start-1">
       <h1 class="mt-1 text-lg font-semibold sm:text-slate-900 md:text-2xl">{{poll_text}}</h1>
@@ -20,41 +20,26 @@
         
     <article class="p-6 mb-6 text-base bg-white rounded-lg">
         <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Discussion</h2>
-                </div>
-      {{!-- <footer class="flex justify-between items-center mb-2">
-        <div class="flex items-center">
-          <p class="inline-flex items-center mr-3 text-sm text-gray-900">
-            <img class="mr-2 w-6 h-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="User Profile Picture">
-            {{comment.user.username}}</p>
-
-          <p class="text-sm text-gray-600"><time pubdate>{{format_date comment.created_at}}</time></p>
+          <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Discussion</h2>
         </div>
-         <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"
-          class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          type="button">
-        </button> 
-      </footer>
-
-      <div>
-        <p class="text-gray-500">{{ comments }}</p>
-      </div> --}}
-      
-       {{#each comments as |comment|}}
-          <div class="card">
-        <h3 class="card-header"></h3>
-        <section class="comment card-body">
-            <div class="text">
-                {{comment_text}}
+        
+       {{!-- {{#each comments as |comment|}}
+            <div>      
+           <footer class="flex justify-between items-center mb-2">
+            <div class="flex items-center">
+            <div class="meta inline-flex items-center mr-3 text-sm text-gray-900">
+            <img class="mr-2 w-6 h-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="User Profile Picture">
+            {{user.username}}</div>
+            <div class="text-sm text-gray-600">{{format_date comment.created_at}}</div>   
+          </footer>
+            <div class="text flex justify-between items-center mb-2">
+              <p class=" text-gray-500"> {{comment_text}}</p>
             </div>
-            <div class="meta">
-                {{user.username}}, {{format_date created_at}}
-            </div>
-        </section>
           </div>
-       {{/each}}
+       {{/each}} --}}
 
-       
+       {{> comment}}
+
     </article>
   </div>
 </section>
