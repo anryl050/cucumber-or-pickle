@@ -107,26 +107,24 @@ router.post('/:id', withAuth, (req, res) => {
         return;
       }
 
-      const pollData = dbPollData.get({ plain: true });
+      // const hasVoted = pollData.agree_votes.includes(req.session.user_id) || pollData.disagree_votes.includes(req.session.user_id);
 
-      const hasVoted = pollData.agree_votes.includes(req.session.user_id) || pollData.disagree_votes.includes(req.session.user_id);
-
-      if (hasVoted) {
-        res.status(403).json({ message: 'User has already voted on this poll' });
-        return;
-      }
+      // if (hasVoted) {
+      //   res.status(403).json({ message: 'User has already voted on this poll' });
+      //   return;
+      // }
 
       const voteType = req.body.vote;
 
       if (voteType === 'agree') {
-        pollData.agree.votes.push(req.session.user_id);
+        dbPollData.agree_votes.push(req.session.user_id);
       } else if (voteType === 'disagree') {
-        pollData.disagree_votes.push(req.session.user_id);
+        dbPollData.disagree_votes.push(req.session.user_id);
       }
 
       Poll.update({
-        agree_votes: pollData.agree_votes,
-        disagree_votes: pollData.disagree_votes
+        agree_votes: dbPollData.agree_votes,
+        disagree_votes: dbPollData.disagree_votes
       },
         {
           where: {
