@@ -1,7 +1,7 @@
 {
   "name": "project-2",
   "version": "1.0.0",
-  "description": "",
+  "description": "![Badge](https://img.shields.io/badge/license-MIT-green?style=plastic&logo=appveyor)",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/anryl050/cucumber-or-pickle"
+    "url": "git+https://github.com/anryl050/cucumber-or-pickle.git"
   },
   "keywords": [],
   "author": "",
@@ -32,5 +32,9 @@
     "mysql2": "^2.3.3",
     "npm": "^9.6.4",
     "sequelize": "^6.31.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/anryl050/cucumber-or-pickle/issues"
+  },
+  "homepage": "https://github.com/anryl050/cucumber-or-pickle#readme"
 }
