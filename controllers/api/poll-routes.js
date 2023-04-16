@@ -98,6 +98,56 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
+router.post('/:id', withAuth, (req, res) => {
+  Poll.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbPollData => {
+      if (!dbPollData) {
+        res.status(404).json({ message: 'No poll found with this id' });
+        return;
+      }
+
+      // const hasVoted = pollData.agree_votes.includes(req.session.user_id) || pollData.disagree_votes.includes(req.session.user_id);
+
+      // if (hasVoted) {
+      //   res.status(403).json({ message: 'User has already voted on this poll' });
+      //   return;
+      // }
+
+      const voteType = req.body.vote;
+
+      if (voteType === 'agree') {
+        dbPollData.agree_votes.push(req.session.user_id);
+      } else if (voteType === 'disagree') {
+        dbPollData.disagree_votes.push(req.session.user_id);
+      }
+
+      Poll.update({
+        agree_votes: dbPollData.agree_votes,
+        disagree_votes: dbPollData.disagree_votes
+      },
+        {
+          where: {
+            id: req.params.id
+          }
+        })
+        .then(dbPollData => {
+          res.json(dbPollData);
+        })
+        .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+        });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 // UPDATE poll route
 router.put('/:id', withAuth, (req, res) => {
   Poll.update({
