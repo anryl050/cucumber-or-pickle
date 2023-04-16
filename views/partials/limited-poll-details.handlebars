@@ -22,22 +22,7 @@
         <div class="flex justify-between items-center mb-6">
           <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Discussion</h2>
         </div>
-        
-       {{!-- {{#each comments as |comment|}}
-            <div>      
-           <footer class="flex justify-between items-center mb-2">
-            <div class="flex items-center">
-            <div class="meta inline-flex items-center mr-3 text-sm text-gray-900">
-            <img class="mr-2 w-6 h-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="User Profile Picture">
-            {{user.username}}</div>
-            <div class="text-sm text-gray-600">{{format_date comment.created_at}}</div>   
-          </footer>
-            <div class="text flex justify-between items-center mb-2">
-              <p class=" text-gray-500"> {{comment_text}}</p>
-            </div>
-          </div>
-       {{/each}} --}}
-
+     
        {{> comment}}
 
     </article>

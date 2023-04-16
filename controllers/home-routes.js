@@ -98,7 +98,7 @@ router.get('/poll/:id', (req, res) => {
       const poll = dbPollData.get({ plain: true });
 
       // pass data to template
-      res.render('single-poll', {
+      res.render('user-homepage', {
         poll,
         logged_in: req.session.logged_in
       });
