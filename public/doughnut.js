@@ -61,7 +61,6 @@ async function voteOnPoll(choice) {
         console.log(response);
         const result = await response.json();
         console.log(result);
-
         const chart = Chart.getChart(pollID + '-chart');
         if (choice === 'agree') {
             chart.data.datasets[0].data[0] = result.agree_votes;
