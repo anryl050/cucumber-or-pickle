@@ -120,27 +120,28 @@ router.post('/:id', withAuth, (req, res) => {
       const voteType = req.body.vote;
 
       if (voteType === 'agree') {
-        dbPollData.agree_votes.push(req.session.user_id);
+        dbPollData.increment('agree_votes', { by: 1 });
       } else if (voteType === 'disagree') {
-        dbPollData.disagree_votes.push(req.session.user_id);
+        dbPollData.increment('disagree_votes', { by: 1 });
       }
 
-      Poll.update({
-        agree_votes: dbPollData.agree_votes,
-        disagree_votes: dbPollData.disagree_votes
-      },
-        {
-          where: {
-            id: req.params.id
-          }
-        })
-        .then(dbPollData => {
-          res.json(dbPollData);
-        })
-        .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-        });
+      res.json(dbPollData);
+      // Poll.update({
+      //   agree_votes: dbPollData.agree_votes,
+      //   disagree_votes: dbPollData.disagree_votes
+      // },
+      //   {
+      //     where: {
+      //       id: req.params.id
+      //     }
+      //   })
+      //   .then(dbPollData => {
+      //     res.json(dbPollData);
+      //   })
+      //   .catch(err => {
+      //     console.log(err);
+      //     res.status(500).json(err);
+      //   });
     })
     .catch(err => {
       console.log(err);

@@ -20,6 +20,12 @@ async function displayPollResults(pollId, elementId) {
     const disagreeVotes = pollData.disagree_votes;
     console.log(agreeVotes);
     console.log(disagreeVotes);
+
+    const existingChart = Chart.getChart(ctx);
+    if (existingChart) {
+        existingChart.destroy();
+    }
+
     new Chart(ctx, {
         type: 'doughnut',
         data: {
@@ -56,18 +62,19 @@ async function voteOnPoll(choice) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ poll: choice })
+            body: JSON.stringify({ vote: choice })
         });
         console.log(response);
         const result = await response.json();
         console.log(result);
-        const chart = Chart.getChart(pollID + '-chart');
-        if (choice === 'agree') {
-            chart.data.datasets[0].data[0] = result.agree_votes;
-        } else if (choice === 'disagree') {
-            chart.data.datasets[0].data[1] = result.disagree_votes;
-        }
-        chart.update();
+        displayPollResults(pollID, `${pollID}-chart`);
+        // const chart = Chart.getChart(pollID + '-chart');
+        // if (choice === 'agree') {
+        //     chart.data.datasets[0].data[0] = result.agree_votes;
+        // } else if (choice === 'disagree') {
+        //     chart.data.datasets[0].data[1] = result.disagree_votes;
+        // }
+        // chart.update();
     } catch (err) {
         console.error(err);
     }
