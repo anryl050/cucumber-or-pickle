@@ -2,8 +2,6 @@
 
     {{#each polls as |poll|}}
 
-    {{!-- {{> poll}} --}}
-
     <section class=" flex flex-col flex-wrap justify-center search-container py-5 gap-5">
 
         <div
@@ -50,7 +48,7 @@
                                 placeholder="Write a comment..." required></input>
                         </div>
                         <button type="submit"
-                            class="inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800">
+                            class="inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800" data-id="{{comment.id}}">
                             Post comment
                         </button>
                     </form>
