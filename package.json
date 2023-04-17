@@ -2,9 +2,6 @@
   "name": "project-2",
   "version": "1.0.0",
   "description": "![Badge](https://img.shields.io/badge/license-MIT-green?style=plastic&logo=appveyor)",
-  "engines": {
-    "node": "^12.21.0"
-    },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
