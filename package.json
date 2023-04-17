@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "![Badge](https://img.shields.io/badge/license-MIT-green?style=plastic&logo=appveyor)",
   "main": "server.js",
+  "engines": {
+    "node": "18.14.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
