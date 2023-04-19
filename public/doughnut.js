@@ -43,20 +43,10 @@ async function displayPollResults(pollId, elementId) {
     });
 }
 
-agreeButton.addEventListener('click', () => {
-    console.log('agree button clicked');
-    voteOnPoll('agree');
-});
-
-disagreeButton.addEventListener('click', () => {
-    console.log('disagree button clicked');
-    voteOnPoll('disagree');
-});
-
-async function voteOnPoll(choice) {
+async function voteOnPoll(choice, pollID) {
     try {
-        const pollID = document.querySelector('#poll-id').value;
-        console.log(pollID);
+        // const pollID = document.querySelector('#poll-id').value;
+        console.log(choice, pollID);
         const response = await fetch(`api/polls/${pollID}`, {
             method: 'POST',
             headers: {

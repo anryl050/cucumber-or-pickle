@@ -1,4 +1,5 @@
 <section id="" class="place-content-center pt-40 pb-40">
+    <script src="/doughnut.js"></script> 
 
     {{#each polls as |poll|}}
 
@@ -20,17 +21,19 @@
             <div class="flex justify-center gap-4 sm:mb-6 lg:gap-6 lg:col-start-2 lg:row-end-6 lg:row-span-6 lg:mb-0">
                 <canvas id="{{ id }}-chart"></canvas> {{! line for hosting the poll chart. }}
             </div>
-            <input type="hidden" id="poll-id" value="{{id}}">
+           
             <div
                 class=" flex gap-5 mt-2 col-start-1 row-start-3 self-center sm:mt-0 sm:col-start-2 sm:row-start-2 sm:row-span-2 lg:mt-6 lg:col-start-1 lg:row-start-3 lg:row-end-4">
-                <button type="submit"
+                <button type="button"
                     class="flex justify-center w-20 items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200  hover:bg-primary-800"
-                    id="agree-button">Agree</button> {{! agree button }}
-                <button type="submit"
+                    id="agree-button" data-id="{{id}}"
+                    onClick="voteOnPoll('agree', '{{id}}')">Agree</button> {{! agree button }}
+                <button type="button"
                     class="flex justify-center w-20 items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800"
-                    id="disagree-button">Disagree</button> {{! disagree button }}
+                    id="disagree-button" data-id="{{id}}" 
+                    onClick="voteOnPoll('disagree', '{{id}}')">Disagree</button> {{! disagree button }}
             </div>
-            <script src="/doughnut.js"></script> {{! addition of poll chart functions }}
+            {{! addition of poll chart functions }}
             <script>displayPollResults('{{ id }}', '{{ id }}-chart');</script> {{! calling function to display poll
             chart }}
 
@@ -43,12 +46,12 @@
                     <form class="mb-6 comment-form" id="comment-form">
                         <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
                             <label for="comment" class="sr-only">Your comment</label>
-                            <input id="comment-text" name="comment-text" rows="6"
+                            <input id="comment-{{id}}-text" name="comment-text" rows="6"
                                 class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none"
                                 placeholder="Write a comment..." required></input>
                         </div>
-                        <button type="submit"
-                            class="inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800" data-id="{{comment.id}}">
+                        <button type="button"
+                            class="inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-primary-200 hover:bg-primary-800 comment-btn" data-id="{{id}}">
                             Post comment
                         </button>
                     </form>
