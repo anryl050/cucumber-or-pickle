@@ -1,8 +1,7 @@
 async function commentFormHandler(event) {
-  event.preventDefault();
 
-  const comment_text = document.querySelector("#comment-text").value;
-  const poll_id = document.querySelector("#poll-id").value;
+  const poll_id = event.target.dataset.id;
+  const comment_text = document.querySelector(`#comment-${poll_id}-text`).value;
 
 
   if (comment_text) {
@@ -26,4 +25,5 @@ async function commentFormHandler(event) {
   }
 }
 
-document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+// document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+$(".comment-btn").click(commentFormHandler)
