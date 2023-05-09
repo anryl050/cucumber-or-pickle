@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
   })
     .then(dbPollData => {
       const polls = dbPollData.map(poll => poll.get({ plain: true }));
-      
+
       const page = req.session.logged_in ? "user-homepage" : "homepage";
       res.render(page, {
         polls,

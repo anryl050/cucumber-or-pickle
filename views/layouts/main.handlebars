@@ -22,38 +22,38 @@
 
 <body class="hero">
   <nav>
-   <!--Fixed Nav Bar: when user scrolls through the screen, the Nav Bar remains on top of the screen. -->
+    <!--Fixed Nav Bar: when user scrolls through the screen, the Nav Bar remains on top of the screen. -->
     <header class="bg-blue-500">
       <div
         class=" px-4 py-4 flex justify-between items-center bg-white fixed top-0 z-30 w-full px-1 py-3 bg-white sm:px-4 shadow-xl">
 
         {{!-- need a route for home page --}}
-        <a  href="/">
-        <blockquote class="text-6xl p-6 font-semibold italic text-start text-slate-900">
-          Cucumber
-          <span
-            class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-blue-500 relative inline-block">
-            <span class="relative text-white">or</span>
-          </span>
-          Pickle
-        </blockquote>
+        <a href="/">
+          <blockquote class="text-6xl p-6 font-semibold italic text-start text-slate-900">
+            Cucumber
+            <span
+              class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-blue-500 relative inline-block">
+              <span class="relative text-white">or</span>
+            </span>
+            Pickle
+          </blockquote>
 
         </a>
-               {{#if logged_in}}
-              <a class="lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900  font-bold  rounded-xl transition duration-200"
-                href="/profile">Your Profile</a>
-              <button
-                 class="no-button lg:inline-block py-2 px-6 bg-pink-500 hover:bg-pink-600 text-sm text-white font-bold rounded-xl transition duration-200"
-                id="logout">Logout</button>
-      
-              {{else}}
+        {{#if logged_in}}
+        <a class="lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900  font-bold  rounded-xl transition duration-200"
+          href="/profile">Your Profile</a>
+        <button
+          class="no-button lg:inline-block py-2 px-6 bg-pink-500 hover:bg-pink-600 text-sm text-white font-bold rounded-xl transition duration-200"
+          id="logout">Logout</button>
 
-              <a class="lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
-               href="/login">Login</a>
-               <a class="no-button lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
-               href="/signup">Sign up</a>
+        {{else}}
 
-              {{/if}}
+        <a class="lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+          href="/login">Login</a>
+        <a class="no-button lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
+          href="/signup">Sign up</a>
+
+        {{/if}}
 
       </div>
     </header>
@@ -62,7 +62,8 @@
 
   <main>
     <div>
-      <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
       {{{body}}}
     </div>
   </main>

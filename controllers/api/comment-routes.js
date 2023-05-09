@@ -13,15 +13,15 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   Comment.findAll({
-          where: {
-              id: req.params.id
-          }
-      })
-      .then(dbCommentData => res.json(dbCommentData))
-      .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-      })
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbCommentData => res.json(dbCommentData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    })
 });
 
 
@@ -40,9 +40,9 @@ router.post('/', withAuth, (req, res) => {
         res.status(500).json(err);
       });
   } else {
-     res.status(404).json({
-            message: 'Not logged in!'
-        });
+    res.status(404).json({
+      message: 'Not logged in!'
+    });
   }
 });
 

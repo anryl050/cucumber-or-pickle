@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 
 // GET all polls posted by user
 router.get('/', (req, res) => {
-  console.log('======================');
+
   Poll.findAll({
     attributes: [
       'id',
@@ -89,9 +89,9 @@ router.post('/', withAuth, (req, res) => {
     poll_text: req.body.poll_text,
     user_id: req.session.user_id
   })
-  .then(dbPollData => 
-    res.json(dbPollData)
-  )
+    .then(dbPollData =>
+      res.json(dbPollData)
+    )
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -110,13 +110,6 @@ router.post('/:id', withAuth, (req, res) => {
         return;
       }
 
-      // const hasVoted = pollData.agree_votes.includes(req.session.user_id) || pollData.disagree_votes.includes(req.session.user_id);
-
-      // if (hasVoted) {
-      //   res.status(403).json({ message: 'User has already voted on this poll' });
-      //   return;
-      // }
-
       const voteType = req.body.vote;
 
       if (voteType === 'agree') {
@@ -126,22 +119,7 @@ router.post('/:id', withAuth, (req, res) => {
       }
 
       res.json(dbPollData);
-      // Poll.update({
-      //   agree_votes: dbPollData.agree_votes,
-      //   disagree_votes: dbPollData.disagree_votes
-      // },
-      //   {
-      //     where: {
-      //       id: req.params.id
-      //     }
-      //   })
-      //   .then(dbPollData => {
-      //     res.json(dbPollData);
-      //   })
-      //   .catch(err => {
-      //     console.log(err);
-      //     res.status(500).json(err);
-      //   });
+
     })
     .catch(err => {
       console.log(err);

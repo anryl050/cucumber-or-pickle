@@ -58,13 +58,7 @@ async function voteOnPoll(choice, pollID) {
         const result = await response.json();
         console.log(result);
         displayPollResults(pollID, `${pollID}-chart`);
-        // const chart = Chart.getChart(pollID + '-chart');
-        // if (choice === 'agree') {
-        //     chart.data.datasets[0].data[0] = result.agree_votes;
-        // } else if (choice === 'disagree') {
-        //     chart.data.datasets[0].data[1] = result.disagree_votes;
-        // }
-        // chart.update();
+
     } catch (err) {
         console.error(err);
     }
