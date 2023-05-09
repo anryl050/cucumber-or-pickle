@@ -5,7 +5,6 @@
 
 ## Table of Content
 #### * [Project Desctiption](#description)
-#### * [Additional Requirement](#requirements)
 #### * [Deployed Application](#application)
 #### * [Demo Video](#video)
 #### * [Installation/Technical Requirements](#installation)
